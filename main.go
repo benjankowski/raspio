@@ -1,7 +1,9 @@
 package main
 
-import "flag"
-import "raspio/server"
+import (
+	"flag"
+	"github.com/benjankowski/raspio/server"
+)
 
 func main() {
     enable_server := flag.Bool("server", false, "Enables server mode (for the controlled device)")
@@ -11,6 +13,6 @@ func main() {
     flag.Parse()
 
     if *enable_server {
-        server.Start(server_bind, server_key)
+        server.Start(*server_bind, *server_key)
     }
 }
